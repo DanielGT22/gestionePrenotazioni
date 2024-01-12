@@ -53,9 +53,9 @@ public class Runner implements CommandLineRunner {
 
 
         try {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 50; i++) {
                 Utente utente = new Utente(
-                        faker.name().name(),
+                        faker.name().firstName(),
                         faker.harryPotter().character(),
                         faker.internet().emailAddress()
                 );
