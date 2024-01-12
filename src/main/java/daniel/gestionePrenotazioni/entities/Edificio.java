@@ -27,4 +27,43 @@ public class Edificio {
     @OneToMany
     public List<Postazione> postazione;
 
+    public Edificio(String nome, String indirizzo, String citta) {
+        this.nome = nome;
+        this.indirizzo = indirizzo;
+        this.citta = citta;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
+
+    public void setCitta(String citta) {
+        this.citta = citta;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getIndirizzo() {
+        return indirizzo;
+    }
+
+    public String getCitta() {
+        return citta;
+    }
+
+    public List<Postazione> getPostazione() {
+        return postazione;
+    }
+
+
 }

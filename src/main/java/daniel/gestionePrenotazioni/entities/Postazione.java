@@ -30,4 +30,7 @@ public class Postazione {
     @OneToMany
     public List<Prenotazione> prenotazioni;
 
+
+
+
 }

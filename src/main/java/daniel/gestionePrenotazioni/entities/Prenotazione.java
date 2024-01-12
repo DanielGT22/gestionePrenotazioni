@@ -28,5 +28,12 @@ public class Prenotazione {
 
     public LocalDate dataDiPrenotazione;
 
+    public Prenotazione(Utente utente, Postazione postazione, LocalDate dataDiPrenotazione) {
+        this.utente = utente;
+        this.postazione = postazione;
+        this.dataDiPrenotazione = dataDiPrenotazione;
+    }
+
+
 }
 

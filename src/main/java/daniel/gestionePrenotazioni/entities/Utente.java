@@ -26,5 +26,13 @@ public class Utente {
     private List<Prenotazione> prenotazioni;
 
 
+    public Utente(String nomeUtente, String nomeCompleto, String email) {
+        this.nomeUtente = nomeUtente;
+        this.nomeCompleto = nomeCompleto;
+        this.email = email;
+    }
 
+    public String getNomeUtente() {
+        return nomeUtente;
+    }
 }
