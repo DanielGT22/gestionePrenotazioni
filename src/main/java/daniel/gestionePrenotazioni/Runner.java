@@ -11,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import daniel.gestionePrenotazioni.entities.*;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Random;
 @Component
@@ -51,6 +52,52 @@ public class Runner implements CommandLineRunner {
         }
 
 
+        try {
+            for (int i = 0; i < 10; i++) {
+                Utente utente = new Utente(
+                        faker.name().name(),
+                        faker.harryPotter().character(),
+                        faker.internet().emailAddress()
+                );
+                utenteService.saveUtente(utente);
+            }
+
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        try {
+            for (int i = 0; i < 10; i++) {
+                Postazione postazione = new Postazione(
+                        faker.gameOfThrones().quote(),
+                        Tipo.values()[faker.random().nextInt(Tipo.values().length)],
+                        faker.number().numberBetween(1,500),
+                        edificioService.findById(faker.number().numberBetween(1, 10))
+
+                );
+                postazioneService.savePostazione(postazione);
+            }
+
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        try {
+            for (int i = 0; i < 10; i++) {
+
+                Utente utente =  utenteService.findById(faker.number().numberBetween(1, 10));
+                Postazione postazione = postazioneService.findById(faker.number().numberBetween(1, 10));
+                LocalDate dataDiPrenotazione = LocalDate.of(random.nextInt(1990,2025),random.nextInt(1,12), random.nextInt(1,28));
+
+                
+                Prenotazione prenotazione = new Prenotazione(utente, postazione, dataDiPrenotazione);
+                prenotazioneService.savePrenotazione(prenotazione);
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+
     }
+
 
 }

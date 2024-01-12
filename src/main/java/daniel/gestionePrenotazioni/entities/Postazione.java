@@ -31,6 +31,10 @@ public class Postazione {
     public List<Prenotazione> prenotazioni;
 
 
-
-
+    public Postazione(String descrizione, Tipo tipo, int numeroMaxOccupanti, Edificio edificio) {
+        this.descrizione = descrizione;
+        this.tipo = tipo;
+        this.numeroMaxOccupanti = numeroMaxOccupanti;
+        this.edificio = edificio;
+    }
 }

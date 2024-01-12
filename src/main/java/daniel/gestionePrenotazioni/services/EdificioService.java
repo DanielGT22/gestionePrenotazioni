@@ -1,6 +1,7 @@
 package daniel.gestionePrenotazioni.services;
 
 import daniel.gestionePrenotazioni.entities.Edificio;
+import daniel.gestionePrenotazioni.exceptions.ItemNotFoundException;
 import daniel.gestionePrenotazioni.repositories.EdificioDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ public class EdificioService {
 
         edificioDAO.save(edificio);
     }
+    public Edificio findById(long id) throws ItemNotFoundException {
 
+
+        return edificioDAO.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
+    }
 }
 
